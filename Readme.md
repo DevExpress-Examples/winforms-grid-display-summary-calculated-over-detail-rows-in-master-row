@@ -3,16 +3,37 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E1581)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
+
+# Winforms Data Grid - Calculate a summary against detail rows and display it in a master row cell
+
+This example creates an [unbound column](https://docs.devexpress.com/WindowsForms/1477/controls-and-libraries/data-grid/unbound-columns) in the master `GridView` and handles the [CustomUnboundColumnData](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.CustomUnboundColumnData) event to calculate the number of detail rows and display the number in the master row.
+
+![Winforms Data Grid - Calculate a summary against detail rows and display it in a master row cell](https://raw.githubusercontent.com/DevExpress-Examples/how-to-display-a-summary-calculated-over-detail-rows-in-a-master-grid-view-column-e1581/13.1.4%2B/media/winforms-grid-custom-totals.png)
+
+```csharp
+public Form1() {
+    // ...
+    gridControl1.ForceInitialize();
+    GridColumn col = gridView1.Columns.AddField("Tasks");
+    col.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+    col.Visible = true;
+    gridView1.CustomUnboundColumnData+=new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(gridView1_CustomUnboundColumnData);
+}
+private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e) {
+    GridView view = sender as GridView;
+    if (e.Column.FieldName != "Tasks") return;
+    if (!e.IsGetData) return;
+    DataRow row = ((view.DataSource as IList)[e.ListSourceRowIndex] as DataRowView).Row;
+    e.Value = row.GetChildRows("Project_Tasks").Length;
+}
+```
+
+
+## Files to Review
 
 * [Form1.cs](./CS/WindowsApplication59/Form1.cs) (VB: [Form1.vb](./VB/WindowsApplication59/Form1.vb))
-<!-- default file list end -->
-# How to display a summary calculated over detail rows in a master grid view column
 
 
-<p>To accomplish this task, create an unbound column in the master GridView and handle the CustomUnboundColumnData event. Within the event, cast the view's DataSource to your datasource type and get the currently processed row by its index. Then, use datasource methods to obtain the child row list for this row, and iterate it to calculate a total.</p>
+## Documentation
 
-<br/>
-
-
+* [Unbound Columns](https://docs.devexpress.com/WindowsForms/1477/controls-and-libraries/data-grid/unbound-columns)
