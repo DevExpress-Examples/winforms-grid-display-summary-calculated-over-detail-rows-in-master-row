@@ -9,7 +9,7 @@
 
 This example creates an [unbound column](https://docs.devexpress.com/WindowsForms/1477/controls-and-libraries/data-grid/unbound-columns) in the master `GridView` and handles the [CustomUnboundColumnData](https://docs.devexpress.com/WindowsForms/DevExpress.XtraGrid.Views.Base.ColumnView.CustomUnboundColumnData) event to calculate the number of detail rows and display the number in the master row.
 
-![Winforms Data Grid - Calculate a summary against detail rows and display it in a master row cell](https://raw.githubusercontent.com/DevExpress-Examples/how-to-display-a-summary-calculated-over-detail-rows-in-a-master-grid-view-column-e1581/13.1.4%2B/media/winforms-grid-custom-totals.png)
+![Winforms Data Grid - Calculate a summary against detail rows and display it in a master row cell](media/winforms-grid-custom-totals.png)
 
 ```csharp
 public Form1() {
@@ -45,3 +45,4 @@ private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGri
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
