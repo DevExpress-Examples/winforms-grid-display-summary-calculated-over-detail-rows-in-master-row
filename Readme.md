@@ -39,7 +39,7 @@ private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGri
 
 * [Unbound Columns](https://docs.devexpress.com/WindowsForms/1477/controls-and-libraries/data-grid/unbound-columns)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-grid-display-summary-calculated-over-detail-rows-in-master-row&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-grid-display-summary-calculated-over-detail-rows-in-master-row&~~~was_helpful=no)
 
